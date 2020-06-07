@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'rule-of-thumb',
+    podModulePrefix: 'rule-of-thumb/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',

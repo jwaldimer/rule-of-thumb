@@ -1,0 +1,16 @@
+// responsive sizes
+$small-phone: '(max-width: 380px)';
+$phone : '(max-width: 480px)';
+$mobile: '(max-width: 600px)';
+$tablet: '(max-width: 1024px)';
+$desktop: '(min-width: 1025px)';
+
+// app font family
+$lato-font: "Lato";
+
+// mixin to responsive design
+@mixin respond-to($media) {
+  @media only screen and #{$media} {
+    @content;
+  }
+}

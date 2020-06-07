@@ -7,4 +7,8 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('public', { path: '/' }, function () {
+    this.route('past-trials');
+    this.route('how-it-works');
+  });
 });

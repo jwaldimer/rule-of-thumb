@@ -1,12 +1,19 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var nodeSass = require('node-sass');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    sassOptions: {
+      includePaths: [
+        'node_modules/materialize-css/sass'
+      ],
+      implementation: nodeSass
+    }
   });
 
+  app.import('node_modules/materialize-css/dist/js/materialize.js');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
