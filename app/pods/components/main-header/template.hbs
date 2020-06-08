@@ -1,0 +1,30 @@
+<header>
+  {{navbar}}
+
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card card-background">
+        <div class="card-content white-text">
+          <span class="card-header-title">{{t "whatsYourOpinion"}}</span>
+          <span class="card-title">{{t "pope"}}</span>
+          <p>{{t "cardDescription"}}</p>
+          {{#link-to "public.main" class="card-more"}}<i class="mdi mdi-wikipedia"></i>{{t "moreInfo"}}{{/link-to}}
+          <span class="card-verdict">{{t "verdict"}}</span>
+        </div>
+        <div class="card-actions">
+          {{#link-to "public.main" class="green-btn"}}<i class="mdi mdi-thumb-up"></i>{{/link-to}}
+          {{#link-to "public.main" class="orange-btn"}}<i class="mdi mdi-thumb-down"></i>{{/link-to}}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="closing-bar">
+    <div class="right-closing-bar">
+      <span>{{t "closingIn"}}</span>
+    </div>
+    <div class="left-closing-bar">
+      <span><i>22</i>{{t "days"}}</span>
+    </div>
+  </div>
+</header>

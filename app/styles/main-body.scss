@@ -1,0 +1,124 @@
+section {
+  padding: calc(var(--vh, 1vh) * 4.9) calc(var(--vh, 1vh) * 19.76);
+
+  @include responsive($tablet) {
+    padding: calc(var(--vh, 1vh) * 4.9) calc(var(--vh, 1vh) * 2.22);
+  }
+
+  .alert-box {
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 14.85);
+    background-color: $gray-v1;
+    padding: calc(var(--vh, 1vh) * 3.7) calc(var(--vh, 1vh) * 4.16);
+    display: inline-flex;
+
+    @include responsive($tablet) {
+      height: auto;
+    }
+
+    h1 {
+      width: 35%;
+      font-size: calc(var(--vh, 1vh) * 3.27);
+      line-height: calc(var(--vh, 1vh) * 3.41);
+      margin: 0;
+      text-align: center;
+      color: $gray-v2;
+      font-weight: 300;
+
+      span {
+        font-size: calc(var(--vh, 1vh) * 5.64);
+        line-height: calc(var(--vh, 1vh) * 5.79);
+        font-weight: 700;
+        color: $gray-v2;
+      }
+    }
+
+    p {
+      font-size: calc(var(--vh, 1vh) * 2.22);
+      line-height: calc(var(--vh, 1vh) * 3.42);
+      color: $gray-v2;
+      padding: calc(var(--vh, 1vh) * 1.48) calc(var(--vh, 1vh) * 2.97) 0 calc(var(--vh, 1vh) * 2.97);
+      margin: 0;
+      font-weight: 300;
+    }
+
+    a {
+      width: 4%;
+
+      i {
+        color: $gray-v2;
+        font-size: calc(var(--vh, 1vh) * 4.45);
+        font-weight: 300;
+      }
+    }
+  }
+
+  h2 {
+    font-size: calc(var(--vh, 1vh) * 5.94);
+    font-weight: 300;
+    color: $gray-v2;
+    margin: calc(var(--vh, 1vh) * 5.94) 0;
+  }
+
+  .vote-item {
+    max-width: calc(var(--vh, 1vh) * 73.1);
+    height: calc(var(--vh, 1vh) * 81.72);
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: calc(var(--vh, 1vh) * 81.72);
+      background: linear-gradient(to bottom, transparent  0%, black 100%);
+      opacity: .5;
+    }
+
+    @include responsive($tablet) {
+      max-width: none;
+    }
+
+    img {
+      width: 100%;
+      height: 115%;
+      object-fit: cover;
+      object-position: calc(var(--vh, 1vh) * -7.42) calc(var(--vh, 1vh) * -10.4);
+    }
+
+    .percentage-bar {
+      width: 100%;
+      height: calc(var(--vh, 1vh) * 7.42);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+
+      span {
+        height: 100%;
+        font-size: calc(var(--vh, 1vh) * 4.3);
+        font-weight: 300;
+        color: white;
+
+        i {
+          margin: 0 calc(var(--vh, 1vh) * 1.48);
+        }
+
+        &.up {
+          background-color: rgba(28,187,180,.7);
+          width: 64%;
+          text-align: left;
+        }
+
+        &.down {
+          background-color: rgba(255,173,29,.7);
+          width: 36%;
+          text-align: right;
+        }
+      }
+    }
+
+  }  
+}

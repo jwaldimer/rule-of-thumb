@@ -9,7 +9,7 @@ $desktop: '(min-width: 1025px)';
 $lato-font: "Lato";
 
 // mixin to responsive design
-@mixin respond-to($media) {
+@mixin responsive($media) {
   @media only screen and #{$media} {
     @content;
   }

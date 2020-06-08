@@ -1,0 +1,14 @@
+<section>
+  <div class="alert-box">
+    <h1>{{t "speakOut"}} <span>{{t "beCounted"}}</span></h1>
+    <p>{{t "ruleOfThumbText"}}</p>
+    {{#link-to "public.main"}}<i class="mdi mdi-close"></i>{{/link-to}}
+  </div>
+
+  <h2>{{t "votes"}}</h2>
+
+  <div class="row">
+    {{vote-item}}
+    {{vote-item}}
+  </div>
+</section>

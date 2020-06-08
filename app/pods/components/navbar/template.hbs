@@ -1,10 +1,18 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Rule of Thumb</a>
+    {{#link-to "public.main" class="brand-logo"}}{{t "title"}}{{/link-to}}
+    <a href="#" data-target="mobile" class="sidenav-trigger"><i class="mdi mdi-menu"></i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
+      <li>{{#link-to "public.past-trials"}}{{t "pastTials"}}{{/link-to}}</li>
+      <li>{{#link-to "public.how-it-works"}}{{t "howItWorks"}}{{/link-to}}</li>
+      <li>{{#link-to "public.main"}}{{t "logIn"}}{{/link-to}}</li>
+      <li>{{#link-to "public.main"}}<i class="mdi mdi-magnify"></i>{{/link-to}}</li>
     </ul>
   </div>
 </nav>
+
+<ul class="sidenav" id="mobile">
+  <li>{{#link-to "public.past-trials"}}{{t "pastTials"}}{{/link-to}}</li>
+  <li>{{#link-to "public.how-it-works"}}{{t "howItWorks"}}{{/link-to}}</li>
+  <li>{{#link-to "public.main"}}{{t "logIn"}}{{/link-to}}</li>
+</ul>
