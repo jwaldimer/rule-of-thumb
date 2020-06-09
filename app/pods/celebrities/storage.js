@@ -1,9 +1,10 @@
-import Route from '@ember/routing/route';
+import StorageArray from 'ember-local-storage/local/array';
 
-export default Route.extend({
-  
-  model(params) {
-    return [{
+const Storage = StorageArray.extend();
+
+  Storage.reopenClass({
+   initialState() {
+     return [{
       id: 1,
       name: 'Kanye West',
       upVotes: 64,
@@ -43,5 +44,7 @@ export default Route.extend({
       image: 'malala.jpg',
       createdAt: '2020-04-01'
     }];
-  }
-});
+   }
+  });
+
+export default Storage;

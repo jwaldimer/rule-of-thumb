@@ -44,7 +44,6 @@ export default Component.extend({
     },
 
     voteNow() {
-      console.log(this.get('celebrity.upVotes'));
       if(this.vote > 0){
         if(this.vote == 1){
           this.set('celebrity.upVotes', this.get('celebrity.upVotes')+1);
