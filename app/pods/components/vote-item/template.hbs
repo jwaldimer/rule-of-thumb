@@ -1,9 +1,29 @@
 <div class="col s12 m6">
-  <div class="vote-item">
-    <img src="assets/images/kanye.png" alt="">
+  <div class="vote-item" id={{concat "item-" celebrity.id}}>
+    <img src={{concat "assets/images/" celebrity.image}} alt="kanye.png">
+    {{#if changeThumb}}
+      <span class="thumb thumb-light-blue"><i class="mdi mdi-thumb-up"></i></span>
+    {{else}}
+      <span class="thumb thumb-orange"><i class="mdi mdi-thumb-down"></i></span>
+    {{/if}}
+    <div class="vote-item-content">
+      <h3>{{celebrity.name}}</h3>
+      <p>{{celebrity.description}}</p>
+      <div class="vote-actions">
+        {{#if hasNoVoted}}
+          <button class="vote-green-btn" {{action "selectThumbUp"}}><i class="mdi mdi-thumb-up"></i></button>
+          <button class="vote-orange-btn" {{action "selectThumbDown"}}><i class="mdi mdi-thumb-down"></i></button>
+          <button class="vote-btn" {{action "voteNow"}}>{{t "voteNow"}}</button>
+        {{else}}
+          <span class="thank-you">{{t "thankYouForVote"}}</span>
+          <button class="vote-btn" {{action "voteAgain"}}>{{t "voteAgain"}}</button>
+        {{/if}}        
+        <span class="vote-time"><strong>1 month ago</strong>in {{celebrity.category}}</span>
+      </div>
+    </div>
     <div class="percentage-bar">
-      <span class="up"><i class="mdi mdi-thumb-up"></i>64<small>%</small></span>
-      <span class="down">36%<i class="mdi mdi-thumb-down"></i></span>
+      <span class="up"><i class="mdi mdi-thumb-up"></i>{{thumbUpPercentage}}%</span>
+      <span class="down">{{thumbDownPercentage}}%<i class="mdi mdi-thumb-down"></i></span>
     </div>
   </div>
 </div>

@@ -1,0 +1,36 @@
+footer {
+  width: 100%;
+  padding: 0 calc(var(--vh, 1vh) * 19.76);
+  height: calc(var(--vh, 1vh) * 23.8);
+
+  @include responsive($tablet) {
+    padding: 0 calc(var(--vh, 1vh) * 2.22); 
+  }
+
+  .main-footer {
+    border-top: dotted calc(var(--vh, 1vh) * 0.15) $gray-v5;
+
+    ul {
+      margin: 0;
+      padding: calc(var(--vh, 1vh) * 4.45) 0;
+      display: flow-root;
+
+      li {
+        float: left;
+
+        a {
+          font-size: calc(var(--vh, 1vh) * 1.78);
+          font-weight: 300;
+          color: $gray-v2;
+          padding-right: calc(var(--vh, 1vh) * 2.97);
+        }
+
+        &.social {
+          a {
+            font-size: calc(var(--vh, 1vh) * 3.7);
+          }
+        }
+      }
+    }
+  }
+}

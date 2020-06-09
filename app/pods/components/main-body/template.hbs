@@ -7,8 +7,14 @@
 
   <h2>{{t "votes"}}</h2>
 
-  <div class="row">
-    {{vote-item}}
-    {{vote-item}}
+  <div class="row votes-body">
+    {{#each celebrities as |celebrity|}}
+      {{vote-item celebrity=celebrity}}
+    {{/each}}
+  </div>
+
+  <div class="banner">
+    <h3>{{t "bannerText"}}</h3>
+    {{#link-to "public.main" class="banner-btn"}}{{t "submitAName"}}{{/link-to}}
   </div>
 </section>

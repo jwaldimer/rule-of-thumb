@@ -11,5 +11,8 @@ Router.map(function() {
     this.route('main', { path: '/' });
     this.route('how-it-works');
     this.route('past-trials');
+    this.route('contact');
+    this.route('policy');
+    this.route('terms');
   });
 });

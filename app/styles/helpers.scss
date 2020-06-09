@@ -1,9 +1,11 @@
 // responsive sizes
 $small-phone: '(max-width: 380px)';
-$phone : '(max-width: 480px)';
+$phone: '(max-width: 480px)';
 $mobile: '(max-width: 600px)';
 $tablet: '(max-width: 1024px)';
 $desktop: '(min-width: 1025px)';
+$portrait: '(orientation:portrait)';
+$landscape: '(orientation:landscape)';
 
 // app font family
 $lato-font: "Lato";
@@ -11,6 +13,13 @@ $lato-font: "Lato";
 // mixin to responsive design
 @mixin responsive($media) {
   @media only screen and #{$media} {
+    @content;
+  }
+}
+
+// mixin to responsive in devise orientation
+@mixin orientation($media) {
+  @media all and #{$media} {
     @content;
   }
 }

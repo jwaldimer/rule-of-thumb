@@ -1,8 +1,8 @@
 section {
-  padding: calc(var(--vh, 1vh) * 4.9) calc(var(--vh, 1vh) * 19.76);
+  padding: calc(var(--vh, 1vh) * 4.9) calc(var(--vh, 1vh) * 19.76) calc(var(--vh, 1vh) * 5.94) calc(var(--vh, 1vh) * 19.76);
 
   @include responsive($tablet) {
-    padding: calc(var(--vh, 1vh) * 4.9) calc(var(--vh, 1vh) * 2.22);
+    padding: calc(var(--vh, 1vh) * 4.9) calc(var(--vh, 1vh) * 2.22); 
   }
 
   .alert-box {
@@ -16,6 +16,11 @@ section {
       height: auto;
     }
 
+    @include orientation($portrait) {
+      display: block;
+      text-align: center;
+    }
+
     h1 {
       width: 35%;
       font-size: calc(var(--vh, 1vh) * 3.27);
@@ -24,6 +29,11 @@ section {
       text-align: center;
       color: $gray-v2;
       font-weight: 300;
+      display: grid;
+
+      @include orientation($portrait) {
+        width: 100%;
+      }
 
       span {
         font-size: calc(var(--vh, 1vh) * 5.64);
@@ -60,65 +70,296 @@ section {
     margin: calc(var(--vh, 1vh) * 5.94) 0;
   }
 
-  .vote-item {
-    max-width: calc(var(--vh, 1vh) * 73.1);
-    height: calc(var(--vh, 1vh) * 81.72);
-    overflow: hidden;
-    position: relative;
+  .votes-body {
 
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: calc(var(--vh, 1vh) * 81.72);
-      background: linear-gradient(to bottom, transparent  0%, black 100%);
-      opacity: .5;
-    }
+    .col {
+      padding-bottom: calc(var(--vh, 1vh) * 5.2);
 
-    @include responsive($tablet) {
-      max-width: none;
-    }
+      &:nth-child(2n) {
+        padding-right: 0;
 
-    img {
-      width: 100%;
-      height: 115%;
-      object-fit: cover;
-      object-position: calc(var(--vh, 1vh) * -7.42) calc(var(--vh, 1vh) * -10.4);
-    }
-
-    .percentage-bar {
-      width: 100%;
-      height: calc(var(--vh, 1vh) * 7.42);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      display: flex;
-
-      span {
-        height: 100%;
-        font-size: calc(var(--vh, 1vh) * 4.3);
-        font-weight: 300;
-        color: white;
-
-        i {
-          margin: 0 calc(var(--vh, 1vh) * 1.48);
+        @include responsive($phone) {
+          padding-left: 0;
         }
 
-        &.up {
-          background-color: rgba(28,187,180,.7);
-          width: 64%;
-          text-align: left;
+        .vote-item {
+          float: right;
         }
+      }
 
-        &.down {
-          background-color: rgba(255,173,29,.7);
-          width: 36%;
-          text-align: right;
+      &:nth-child(2n+1) {
+        padding-left: 0;
+
+        @include responsive($phone) {
+          padding-right: 0;
         }
       }
     }
 
-  }  
+    .vote-item {
+      max-width: calc(var(--vh, 1vh) * 73.1);
+      height: calc(var(--vh, 1vh) * 81.72);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(var(--vh, 1vh) * 81.72);
+        background: linear-gradient(to bottom, transparent  0%, black 100%);
+        opacity: .5;
+        z-index: 1;
+      }
+
+      @include responsive($tablet) {
+        max-width: none;
+      }
+
+      img {
+        width: 100%;
+        height: 115%;
+        object-fit: cover;
+        object-position: calc(var(--vh, 1vh) * -7.42) calc(var(--vh, 1vh) * -10.4);
+        z-index: 0;
+        position: absolute;
+      }
+
+      .thumb {
+        width: calc(var(--vh, 1vh) * 4.45);
+        height: calc(var(--vh, 1vh) * 4.6);
+        color: white;
+        line-height: calc(var(--vh, 1vh) * 4.6);
+        font-size: calc(var(--vh, 1vh) * 2.7);
+        text-align: center;
+        margin-top: 62%;
+        float: left;
+        position: relative;
+        z-index: 3;
+
+        &.thumb-light-blue {
+          background-color: $light-blue;
+        }
+
+        &.thumb-orange {
+          background-color: $orange;
+        }
+
+      }
+
+      .vote-item-content {
+        z-index: 3;
+        position: absolute;
+        bottom: calc(var(--vh, 1vh) * 13.37);
+        left: calc(var(--vh, 1vh) * 4.46);
+        padding: 0 calc(var(--vh, 1vh) * 1.48);   
+
+        h3 {
+          font-size: calc(var(--vh, 1vh) * 6.68);
+          font-weight: 400;
+          color: white;
+          margin: 0;
+          margin-bottom: calc(var(--vh, 1vh) * 1.78);
+        }
+
+        p {
+          font-size: calc(var(--vh, 1vh) * 2.38);
+          font-weight: 300;
+          color: white;
+          padding-right: calc(var(--vh, 1vh) * 3.7);
+          margin: 0;
+          margin-bottom: calc(var(--vh, 1vh) * 2.97);
+        }
+
+        .vote-actions {
+
+          button {
+            width: calc(var(--vh, 1vh) * 4.6);
+            height: calc(var(--vh, 1vh) * 4.6);
+            color: white;
+            line-height: calc(var(--vh, 1vh) * 4.6);
+            font-size: calc(var(--vh, 1vh) * 2.7);
+            text-align: center;
+            margin-left: calc(var(--vh, 1vh) * 1.48);
+            margin-top: calc(var(--vh, 1vh) * 0.74);
+            float: left;
+            border: none;
+            cursor: pointer;
+
+            &.vote-green-btn {
+              background-color: $light-blue;
+
+              &:hover, &.selected {
+                border: solid calc(var(--vh, 1vh) * 0.29) white;
+                line-height: calc(var(--vh, 1vh) * 4);
+              }
+            }
+
+            &.vote-orange-btn {
+              background-color: $orange;
+
+              &:hover, &.selected {
+                border: solid calc(var(--vh, 1vh) * 0.29) white;
+                line-height: calc(var(--vh, 1vh) * 4);
+              }
+            }
+
+            &.vote-btn {
+              position: relative;
+              width: calc(var(--vh, 1vh) * 14.85);
+              height: calc(var(--vh, 1vh) * 5.9);
+              border: solid calc(var(--vh, 1vh) * 0.15) white;
+              font-size: calc(var(--vh, 1vh) * 2);
+              font-weight: 400;
+              text-align: center;
+              line-height: calc(var(--vh, 1vh) * 5.35);
+              color: white;
+              background: rgba(0,0,0,.15);
+              margin-top: 0;
+        
+              &:hover {
+                background: rgba(0,0,0,.1);
+              }
+            }
+          }
+
+          .thank-you {
+            font-size: calc(var(--vh, 1vh) * 2.38);
+            color: white;
+            font-weight: 400;
+            float: left;
+            line-height: calc(var(--vh, 1vh) * 5.9);
+          }
+
+          .vote-time {
+            float: right;
+            display: grid;
+            text-align: right;
+            font-size: calc(var(--vh, 1vh) * 1.78);
+            color: white;
+
+            strong {
+              font-weight: bold;
+            }
+          }
+        }
+
+      }
+
+      .percentage-bar {
+        width: 100%;
+        height: calc(var(--vh, 1vh) * 7.42);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        z-index: 3;
+
+        span {
+          height: 100%;
+          font-size: calc(var(--vh, 1vh) * 4.3);
+          font-weight: 300;
+          color: white;
+
+          i {
+            margin: 0 calc(var(--vh, 1vh) * 1.48);
+          }
+
+          &.up {
+            background-color: rgba(28,187,180,.7);
+            width: 64%;
+            text-align: left;
+          }
+
+          &.down {
+            background-color: rgba(255,173,29,.7);
+            width: 36%;
+            text-align: right;
+          }
+        }
+      }
+
+    }
+  }
+  
+  .banner {
+    background-image: url(images/layer.jpg);
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 11.88);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 0 calc(var(--vh, 1vh) * 3.71) 0 calc(var(--vh, 1vh) * 5.2);
+
+    @include orientation($portrait) {
+      height: calc(var(--vh, 1vh) * 26.74);
+      padding: 0 calc(var(--vh, 1vh) * 1.48);
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: calc(var(--vh, 1vh) * 11.88);
+      background-color: rgba(255,255,255,.85);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      @include orientation($portrait) {
+        height: calc(var(--vh, 1vh) * 26.74);
+      }
+    }
+
+    h3 {
+      position: relative;
+      float: left;
+      font-size: calc(var(--vh, 1vh) * 4.46);
+      font-weight: 300;
+      color: $gray-v2;
+      margin: 0;
+      line-height: calc(var(--vh, 1vh) * 11.88);
+      z-index: 3;
+
+      @include orientation($portrait) {
+        line-height: calc(var(--vh, 1vh) * 7.43);
+        text-align: center;
+        float: none;
+      }
+
+      @include responsive($small-phone) {
+        font-size: calc(var(--vh, 1vh) * 3.7);
+        line-height: calc(var(--vh, 1vh) * 7.43);
+      }
+    }
+
+    .banner-btn {
+      position: relative;
+      float: right;
+      width: calc(var(--vh, 1vh) * 31.2);
+      height: calc(var(--vh, 1vh) * 7.43);
+      border: solid calc(var(--vh, 1vh) * 0.44) $gray-v2;
+      font-size: calc(var(--vh, 1vh) * 2.97);
+      font-weight: 400;
+      text-align: center;
+      line-height: calc(var(--vh, 1vh) * 6.53);
+      color: $gray-v2;
+      z-index: 3;
+      margin-top: calc(var(--vh, 1vh) * 2.22);
+
+      &:hover {
+        background: rgba(51,51,51,.1);
+      }
+
+      @include orientation($portrait) {
+        display: block;
+        float: none;
+        margin: 0 auto;
+      }
+    }
+  }
 }
