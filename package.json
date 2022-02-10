@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "ember-cli-sass": "^10.0.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass": "^1.26.8",
     "materialize-css": "^1.0.0-rc.2"
   }
